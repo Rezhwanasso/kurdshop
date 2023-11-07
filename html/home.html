@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <title>Document</title>
+</head>
+<body>
+   
+    
+    <p id="demo"></p>
+
+
+</body>
+</html>
+
+
+<script>
+    // لێرەدە ئەو کاتە دابنێ کە دەتەوێت بیژمێریت
+var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
+
+// هەموو چرکەیەک کاتەکە کەم بکەرەوە
+var x = setInterval(function () {
+  // هێنانی کاتی ئەمڕۆ
+  var now = new Date().getTime();
+
+  // مەودای نێوان کاتی ئێستا و بەرواری ئەو ڕۆژەی کە دەمانەوێت بیژمێرین بۆی
+  var distance = countDownDate - now;
+
+  // پاشان ئەو کاتەی کە هەمانە دەریدەکەین بە پێی ڕۆژ ، سەعات، دەقە، چرکە
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // ئەنجامەکەی بخەرە ناو ئەو ئێلێمێنتەی کە ئایدیەکەی ناوی (Demo) ــیە
+  document.getElementById("demo").innerHTML =
+    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+  // لێرەدا حسابی ئەوە دەکەین ئەگەر کاتەکە تەواو بوو
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "بەسەرچووە";
+  }
+}, 1000);
+
+</script>
